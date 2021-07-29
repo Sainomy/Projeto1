@@ -1,8 +1,8 @@
-const moongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-const url = "mongodb+srv://sainomy:<password>@cluster0.7b55y.mongodb.net/projeto1";
+const uri = "mongodb+srv://sainomy:aluno@cluster0.7b55y.mongodb.net/anime";
 
-moongoose.connect(url, {useNewUrlParse: true, useUnfledTopology: true});
-moongoose.set("useFindAndModify", false);
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.set("useFindAndModify", false);
 
 module.exports = mongoose;

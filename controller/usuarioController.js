@@ -1,7 +1,7 @@
 var Usuario = require("../model/Usuario");
 
 async function abreAdd(req, res){
-    res.render("usuario/add.ejs", {});
+    res.render("usuario/add.ejs", { msg: ""});
 }
 
 async function add(req, res){
@@ -20,13 +20,19 @@ novoUsuario.save(function(err){
     if(err){
         console.log("O erro que aconteceu foi: " + err);
     } else {
-        res.render("Usuario/list.ejs", req.body);
+        res.render("usuario/add.ejs", { msg: "Usuário adicionado com sucesso!"});
     }
  });
 }
 
 async function listar(req, res){
-    res.send("Oi mundo!");
+    Usuario.find({}).lean().exec(function(err, docs){
+        if(err){
+            console.log("Aconteceu o seguinte erro: " + err);
+        } else {
+            res.render("usuario/list.ejs", { Usuarios: docs });
+        }
+    });
 }
 
 async function listarFiltro(req, res){}
