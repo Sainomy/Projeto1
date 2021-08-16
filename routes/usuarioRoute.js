@@ -11,8 +11,8 @@ router.get("/", usuarioController.listar);
 router.post("/", usuarioController.listarFiltro);
 
 //UPDATE
-router.get("/edt/:id", usuarioController.abreEdt);
-router.post("/edt/:id", usuarioController.edt);
+router.get("/edit/:id", usuarioController.abreEdt);
+router.post("/edit/:id", usuarioController.edt);
 
 //DELETE
 router.get("/del/:id", usuarioController.del);

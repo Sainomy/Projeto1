@@ -62,9 +62,33 @@ async function listarFiltro(req, res){
     }
 }
 
-async function abreEdt(req, res){}
+async function abreEdt(req, res){
+    Usuario.findById(req.params.id)
+    .lean()
+    .exec(function(err, docs){
+        if(err){
+            console.log("Aconteceu o seguinte erro: " + err);
+        } else {
+            res.render("usuario/edit.ejs", { msg: "", Usuario: docs });
+        }
+    });
+}
 
-async function edt(req, res){}
+async function edt(req, res){
+    Usuario.findById(req.params.id, function(err, usuario){
+    usuario.nome = req.body.nome;
+    usuario.email = req.body.email;
+    usuario.senha = req.body.senha;
+    usuario.foto = req.body.foto;
+    usuario.save(function(err){
+        if(err){
+            console.log("Aconteceu o seguinte erro: " + err);
+        } else {
+            res.render("usuario/edit.ejs", { msg: "O usuario foi editado com sucesso!", Usuario: usuario, });
+        }
+    });
+  });
+}
 
 async function del(req, res){
     Usuario.findByIdAndDelete(req.params.id).exec(function(err){
