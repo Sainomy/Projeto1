@@ -1,24 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuario - LIST</title>
-    <style>
-        table, td, th { 
-            border: solid 1px black;
-        }
-        td, th{
-            padding: 20px;
-        }
-        th{
-            font-weight: bold;
-            background-color: gray;
-        }
-    </style>
-</head>
-<body>
+<%- include("../cabecalho.ejs") -%>
+
+    <form method="POST">
+        <input type="text" name="pesquisar" id="pesquisar">
+        <select name="opcao">
+            <option value="nome">Nome</option>
+            <option value="email">E-mail</option>
+        </select>
+        <input type="submit" value="Pesquisar">
+    </form>
+
     <table>
         <tr>
             <th>id</th>
@@ -40,5 +30,5 @@
         <% }) %>
        
     </table>
-</body>
-</html>
+
+<%- include("../rodape.ejs") -%>

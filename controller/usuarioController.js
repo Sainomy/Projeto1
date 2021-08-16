@@ -35,7 +35,32 @@ async function listar(req, res){
     });
 }
 
-async function listarFiltro(req, res){}
+async function listarFiltro(req, res){
+    var pesquisar = req.body.pesquisar;
+    var opcao = req.body.opcao;
+
+    if(opcao == "email") {
+        Usuario.find({ email: new RegExp(pesquisar, "i") })
+        .lean()
+        .exec(function(err, docs){
+            if(err){
+                console.log("Aconteceu o seguinte erro: " + err);
+            } else {
+                res.render("usuario/list.ejs", { Usuarios: docs });
+            }
+        });
+    } else if(opcao == "nome"){
+        Usuario.find({ nome: new RegExp(pesquisar, "i") })
+        .lean()
+        .exec(function(err, docs){
+            if(err){
+                console.log("Aconteceu o seguinte erro: " + err);
+            } else {
+                res.render("usuario/list.ejs", { Usuarios: docs });
+            }
+        });
+    }
+}
 
 async function abreEdt(req, res){}
 
