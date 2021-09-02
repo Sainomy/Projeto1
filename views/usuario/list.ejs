@@ -25,9 +25,9 @@
             <td> <%=usuario.nome%> </td>
             <td> <%=usuario.email%> </td>
             <td> <%=usuario.senha%> </td>
-            <td> <%=usuario.foto%> </td>
-            <td><a href="/usuario/edit/<%=usuario._id%>"><img style = "max-width: 40px;" src="/edit.png"></a></td>
-            <td><a href="/usuario/del/<%=usuario._id%> "><img style = "max-width: 40px;" src="/del.png"></a></td>
+            <td> <img style = "max-width: 50px;" src="/fotos/<%=usuario.foto%>"> </td>
+            <td><a href="/usuario/edit/<%=usuario._id%>"><img style = "max-width: 40px;" src="/img/edit.png"></a></td>
+            <td><a href="/usuario/del/<%=usuario._id%> "><img style = "max-width: 40px;" src="/img/del.png"></a></td>
         </tr>
         <% }) %>
        

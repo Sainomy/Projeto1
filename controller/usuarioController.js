@@ -5,16 +5,16 @@ async function abreAdd(req, res){
 }
 
 async function add(req, res){
-    let nome = req.body.nome;
-    let email = req.body.email;
-    let senha = req.body.senha;
-    let foto = req.body.foto;
+    var nome = req.body.nome;
+    var email = req.body.email;
+    var senha = req.body.senha;
+    var foto = req.file.filename;
 
 var novoUsuario = new Usuario({
-    nome:nome,
-    email:email,
-    senha:senha,
-    foto:foto,
+    nome: nome,
+    email: email,
+    senha: senha,
+    foto: foto,
 });
 novoUsuario.save(function(err){
     if(err){
